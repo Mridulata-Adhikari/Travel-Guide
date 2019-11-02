@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Places">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true"
+        >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@android:color/transparent"
+            android:fitsSystemWindows="true"
+            >
+
+            <ImageView
+                app:layout_collapseMode="parallax"
+                android:src="@drawable/banner"
+                android:id="@+id/placeimage"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="350dp" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:title="Demo"
+                app:layout_collapseMode="pin"
+                />
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/textplacetitle"
+                android:text="PlaceTitle"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#000"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#000"
+                android:layout_below="@+id/textplacetitle"
+                android:id="@+id/textplacedetail"
+                android:text="Place Detail"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                />
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_below="@id/textplacedetail"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:id="@+id/placeweathercard"
+                app:cardCornerRadius="6dp"
+                android:elevation="5dp"
+
+                app:cardBackgroundColor="#956181"
+                >
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/weatherimgplace"
+                    android:src="@drawable/ic_weather_black_24dp"
+                    />
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:text="23 C"
+                    android:textSize="27dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="40dp"
+                    android:id="@+id/weathertempplace"
+                    android:textColor="#fff"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Partly Cloudy"
+                    android:textSize="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="49dp"
+                    android:layout_marginStart="30dp"
+                    android:id="@+id/weatherstatusplace"
+                    android:textColor="#fff"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="People who have viewed this have also viewed..."
+                android:layout_below="@id/placeweathercard"
+                android:layout_margin="20dp"
+                android:textStyle="bold"
+                android:id="@+id/moreplaces"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/moreplaces"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:id="@+id/rvmoreplace"/>
+
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
